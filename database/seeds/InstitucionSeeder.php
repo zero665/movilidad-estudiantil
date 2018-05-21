@@ -16,7 +16,6 @@ class InstitucionSeeder extends Seeder
         	'nombre' => 'Instituto Tecnológico de Toluca',
         	'descentralizada' => '0',
         	'numeroTelefonico' => '1800647',
-
         ]);
     }
 }

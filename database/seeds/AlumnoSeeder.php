@@ -16,15 +16,20 @@ class AlumnoSeeder extends Seeder
     		->where(['nombre'=>'Instituto Tecnológico de Toluca'])
     		->value('idInstitucion');
 
+    	$idCarrera = DB::table('carreras')
+    		->where(['nombre'=>'Ingeniería en sistemas computacionales'])
+    		->value('idCarrera');
+
         DB::table('alumnos')->insert([
         	'numeroDeControl' => '15280838',
         	'contrasenia' => bcrypt('123456'),
+        	'estado' => 'espera',
         	'nombre' => 'José Adán',
         	'apellidoPaterno' => 'Cruz',
         	'apellidoMaterno' => 'Castrejón',
         	'correo' => 'djdaan86@gmail.com',
         	'idInstitucion' => $idInstitucion,
-        	'carrera' => 'ISC',
+        	'idCarrera' => $idCarrera,
         	// 'fechaIngreso' => null,
         	// 'numeroTelefonico' => null,
         	// 'nacionalidad' => null,
