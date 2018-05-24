@@ -15,7 +15,7 @@ class CreateAdministradoresTable extends Migration
     {
         Schema::create('administradores', function (Blueprint $table) {
             $table->increments('idAdministrador');
-            $table->string('numeroDeControl');
+            $table->string('claveDeControl');
             $table->string('contrasenia');
             $table->string('estado');
             $table->string('nombre');
@@ -24,8 +24,6 @@ class CreateAdministradoresTable extends Migration
             $table->string('correo')->unique();
             $table->integer('idInstitucion')->unsigned();
             $table->foreign('idInstitucion')->references('idInstitucion')->on('instituciones');
-            $table->integer('idCarrera')->unsigned();
-            $table->foreign('idCarrera')->references('idCarrera')->on('carreras');
             $table->timestamps();
             $table->integer('numeroTelefonico')->nullable();
         });

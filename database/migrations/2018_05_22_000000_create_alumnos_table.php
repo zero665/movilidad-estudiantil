@@ -24,10 +24,7 @@ class CreateAlumnosTable extends Migration
             $table->string('correo')->unique();
             $table->integer('idInstitucion')->unsigned();
             $table->foreign('idInstitucion')->references('idInstitucion')->on('instituciones');
-            $table->integer('idCarrera')->unsigned();
-            $table->foreign('idCarrera')->references('idCarrera')->on('carreras');
-            //$table->integer('idAlergia')->unsigned();
-            //$table->foreign('idAlergia')->references('idAlergia')->on('alergias');
+            $table->integer('carrera');
             $table->date('fechaIngreso')->nullable();
             $table->integer('numeroTelefonico')->nullable();
             $table->string('nacionalidad')->nullable();

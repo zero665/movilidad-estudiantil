@@ -15,6 +15,10 @@ class CreateCalificacionesTable extends Migration
     {
         Schema::create('calificaciones', function (Blueprint $table) {
             $table->increments('idCalificacion');
+            $table->integer('idSolicitudOrigen')->unsigned();
+            $table->foreign('idSolicitudOrigen')->references('idSolicitudOrigen')->on('solicitudes');
+            $table->integer('idSolicitudDestino')->unsigned();
+            $table->foreign('idSolicitudDestino')->references('idSolicitudDestino')->on('solicitudes');
             $table->integer('idAlumnoOrigen');
             $table->integer('idAlumnoDestino');
             $table->integer('calificacion');

@@ -15,20 +15,22 @@ class CreateSolicitudesTable extends Migration
     {
         Schema::create('solicitudes', function (Blueprint $table) {
             $table->increments('idSolicitudOrigen');
-            $table->integer('idSolicitudDestino')->nullable()->unsigned();
-            $table->foreign('idSolicitudOrigen')->references('idSolicitud')->on('solicitudes');
-            $table->integer('idAlumnoOrigen');
-            $table->integer('idAlumnoDestino')->nullable()->unsigned();
+            $table->integer('idSolicitudDestino')->unsigned()->nullable();
+            $table->foreign('idSolicitudDestino')->references('idSolicitudOrigen')->on('solicitudes');
+            $table->integer('idAlumnoOrigen')->unsigned();
             $table->foreign('idAlumnoOrigen')->references('idAlumno')->on('alumnos');
+            $table->integer('idAlumnoDestino')->unsigned()->nullable();
+            $table->foreign('idAlumnoDestino')->references('idAlumnoOrigen')->on('solicitudes');
             $table->char('estado');
             $table->date('fechaExpedida');
             $table->date('fechaAceptada')->nullable();
-            $table->integer('idInstitucionOrigen');
-            $table->integer('idInstitucionDestino')->nullable()->unsigned();
-            $table->foreign('idInstitucionOrigen')->references('idInstitucion')->on('instituciones');
-            $table->string('duracion');
+            $table->integer('idInstitucionOrigen')->unsigned();
+            $table->foreign('idInstitucionOrigen')->references('idInstitucion')->on('alumnos');
+            $table->integer('idInstitucionDestino')->unsigned()->nullable();
+            $table->foreign('idInstitucionDestino')->references('idInstitucionOrigen')->on('solicitudes');
+            $table->string('duracion')->nullable();
             $table->string('razones');
-            $table->string('observaciones');
+            $table->string('observaciones')->nullable();
             $table->timestamps();
         });
     }
