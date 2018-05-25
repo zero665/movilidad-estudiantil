@@ -18,7 +18,7 @@ class CreateSolicitudesTable extends Migration
             $table->integer('idSolicitudDestino')->unsigned()->nullable();
             $table->foreign('idSolicitudDestino')->references('idSolicitudOrigen')->on('solicitudes');
             $table->integer('idAlumnoOrigen')->unsigned();
-            $table->foreign('idAlumnoOrigen')->references('idAlumno')->on('alumnos');
+            $table->foreign('idAlumnoOrigen')->references('numeroDeControl')->on('alumnos');
             $table->integer('idAlumnoDestino')->unsigned()->nullable();
             $table->foreign('idAlumnoDestino')->references('idAlumnoOrigen')->on('solicitudes');
             $table->char('estado');

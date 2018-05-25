@@ -14,17 +14,16 @@ class CreateAlumnosTable extends Migration
     public function up()
     {
         Schema::create('alumnos', function (Blueprint $table) {
-            $table->increments('idAlumno');
-            $table->string('numeroDeControl');
+            $table->integer('numeroDeControl')->unsigned();
             $table->string('contrasenia');
-            $table->string('estado');
+            $table->string('estado')->default('no aceptado');
             $table->string('nombre');
             $table->string('apellidoPaterno');
             $table->string('apellidoMaterno');
             $table->string('correo')->unique();
             $table->integer('idInstitucion')->unsigned();
             $table->foreign('idInstitucion')->references('idInstitucion')->on('instituciones');
-            $table->integer('carrera');
+            $table->string('carrera');
             $table->date('fechaIngreso')->nullable();
             $table->integer('numeroTelefonico')->nullable();
             $table->string('nacionalidad')->nullable();
@@ -34,6 +33,17 @@ class CreateAlumnosTable extends Migration
             $table->string('correoEmergencia')->nullable();
             $table->rememberToken();
             $table->timestamps();
+            /*$table->nullable(
+                'fechaIngreso',
+                'numeroTelefonico',
+                'nacionalidad',
+                'nombreTutor',
+                'parentezco',
+                'telefonoEmergencia',
+                'correoEmergencia'
+            );*/
+            $table->primary('numeroDeControl');
+            
         });
     }
 

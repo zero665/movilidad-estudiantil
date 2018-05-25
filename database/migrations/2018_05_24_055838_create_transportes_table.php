@@ -15,8 +15,8 @@ class CreateTransportesTable extends Migration
     {
         Schema::create('transportes', function (Blueprint $table) {
             $table->increments('idTransporte');
-            $table->integer('idAlumno')->unsigned();
-            $table->foreign('idAlumno')->references('idAlumno')->on('alumnos');
+            $table->integer('numeroDeControl')->unsigned();
+            $table->foreign('numeroDeControl')->references('numeroDeControl')->on('alumnos');
             $table->string('nombre');
             $table->string('tiempo');
             $table->string('costo');

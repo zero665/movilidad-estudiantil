@@ -14,6 +14,7 @@ class CreateMascotasTable extends Migration
     public function up()
     {
         Schema::create('mascotas', function (Blueprint $table) {
+            $table->increments('idMascota');
             $table->integer('idHogar')->unsigned();
             $table->foreign('idHogar')->references('idHogar')->on('hogares');
             $table->string('tipoMascota');

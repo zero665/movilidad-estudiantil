@@ -36,4 +36,15 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    public function numeroDeControl()
+    {
+        return 'numeroDeControl';
+    }
+
+    protected function guard()
+    {
+        return Auth::guard('guard-alumno');
+    }
+
 }

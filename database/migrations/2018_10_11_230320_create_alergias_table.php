@@ -14,8 +14,8 @@ class CreateAlergiasTable extends Migration
     public function up()
     {
         Schema::create('alergias', function (Blueprint $table) {
-            $table->integer('idAlumno')->unsigned();
-            $table->foreign('idAlumno')->references('idAlumno')->on('alumnos');
+            $table->integer('numeroDeControl')->unsigned();
+            $table->foreign('numeroDeControl')->references('numeroDeControl')->on('alumnos');
             $table->string('nombre');
             $table->string('descripcion');
             $table->timestamps();

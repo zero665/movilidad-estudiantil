@@ -16,7 +16,7 @@ class CreateHogaresTable extends Migration
         Schema::create('hogares', function (Blueprint $table) {
             $table->increments('idHogar');
             $table->integer('idAlumno')->unsigned();
-            $table->foreign('idAlumno')->references('idAlumno')->on('alumnos');
+            $table->foreign('idAlumno')->references('numeroDeControl')->on('alumnos');
             $table->integer('numeroHabitantes');
             $table->integer('edadMenor');
             $table->integer('edadMayor');
